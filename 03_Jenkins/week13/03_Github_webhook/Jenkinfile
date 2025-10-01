@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // Define variables
-        DOCKER_IMAGE       = 'tonnam250/fastapi-webhook:latest'
+        DOCKER_IMAGE       = 'tuchsanai/fastapi-webhook:latest'
         DOCKER_CREDENTIALS = credentials('dockerhub')
     }
 
@@ -37,7 +37,7 @@ pipeline {
                     // Login to Docker Hub
                     sh 'echo $DOCKER_CREDENTIALS_PSW | docker login --username $DOCKER_CREDENTIALS_USR --password-stdin'
                     // Push the image
-                    sh 'docker push $DOCKER_IMAGE'
+                    sh 'docker push tonnam250/fastapi-webhook:latest'
                 }
             }
         }
